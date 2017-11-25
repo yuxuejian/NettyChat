@@ -24,7 +24,9 @@ public class NettyServer {
 		.childOption(ChannelOption.SO_KEEPALIVE, true);//从线程池时刻保持连接
 		
 		try {
-			Channel channel = b.bind(8081).sync().channel();
+			Channel channel = b.bind(8083).sync().channel();
+			
+			System.out.println("服务端启动");
 			channel.closeFuture().sync();
 		} catch (InterruptedException e) {
 			bossGroup.shutdownGracefully();
